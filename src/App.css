@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+
+@layer components{
+    .home-overlay{
+        @apply absolute top-60 lg:left-31 flex-col space-y-10 text-center lg:text-left
+    }
+}
+
+@layer base{
+    .home-overlay h3{
+        @apply lg:text-2xl text-[var(--ternary-color)] font-bold
+    }
+    .home-overlay h1{
+        @apply lg:text-5xl  font-medium text-[45px] 
+    }
+    .home-overlay h1 span{
+        @apply text-[#FFC247]
+    }
+    .home-overlay ul{
+        @apply flex justify-between mx-10 lg:mx-0 
+    }
+    ul li{
+        @apply hover:text-[var(--secondary-color)] cursor-pointer
+    }
+    .home-overlay .btns{
+        @apply flex gap-10 justify-center
+    }
+    .btns #whatsapp{
+        @apply bg-[#00b96c9b] p-2 rounded hover:bg-[#009e5c] cursor-pointer border-[var(--ternary-color)] border-2 shadow-xl shadow-green-200
+    }
+    .btns #email{
+        @apply  border-[var(--secondary-color)] border-3 p-2 rounded-full;
+    }
+}
