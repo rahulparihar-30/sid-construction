@@ -14,7 +14,7 @@ const Home = () => {
         playsInline
       >
         <source
-          src={`${import.meta.env.BASE_URL}cover-vid.mp4`}
+          src={`cover-vid.mp4`}
           type="video/mp4"
         />
         Your browser does not support the video tag.
