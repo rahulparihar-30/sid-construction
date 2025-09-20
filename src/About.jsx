@@ -68,7 +68,7 @@ const About = () => {
   >
     <video
       className="w-full h-full object-cover rounded shadow-lg"
-      src={`${import.meta.env.BASE_URL}About.mp4`}
+      src={`About.mp4`}
       muted
       autoPlay
       loop

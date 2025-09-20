@@ -15,10 +15,7 @@ const router = createBrowserRouter(
       path: '/projects',
       element: <Projects />,
     },
-  ],
-  {
-    basename: '/services/sid-construction', // ✅ matches vite.config.js base
-  }
+  ]
 )
 
 createRoot(document.getElementById('root')).render(

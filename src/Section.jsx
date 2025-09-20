@@ -69,7 +69,7 @@ const Section = (props) => {
       >
         {/* Project Image */}
         <img
-          src={`${import.meta.env.BASE_URL}${activeFeature.image}`}
+          src={activeFeature.image}
           alt={activeFeature.name}
           className="w-full h-64 object-cover rounded-lg"
         />

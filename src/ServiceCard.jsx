@@ -21,7 +21,7 @@ const ServiceCard = ({ service, onView }) => {
       {/* Background Image */}
       <motion.img
         loading="lazy"
-        src={`${import.meta.env.BASE_URL}${service.image}`}
+        src={service.image}
         alt={service.name}
         className="w-full h-full object-cover brightness-50"
         whileHover={{ scale: 1.1 }} 

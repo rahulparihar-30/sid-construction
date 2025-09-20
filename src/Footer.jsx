@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <a to="/" className="w-10 h-10 cursor-pointer">
             <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
+              src={`logo.png`}
               className="w-15 h-15 rounded mb-3"
               alt="Agritech Solutions"
             />

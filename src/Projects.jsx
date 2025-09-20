@@ -29,7 +29,7 @@ const Projects = () => {
         {/* Hero Image + Tagline */}
         <div className="w-full h-60 md:h-70 relative bg-black">
           <img
-            src={`${import.meta.env.BASE_URL}skyscrapers.jpg`}
+            src={`skyscrapers.jpg`}
             className="w-full h-full object-cover opacity-50"
             alt="Projects banner"
             loading="eager"
