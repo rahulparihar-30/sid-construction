@@ -6,22 +6,25 @@ const ServiceCard = ({ service, onView }) => {
 
   return (
     <motion.div
-      className="cursor-pointer card relative w-[300px] h-[400px] border-4 border-amber-600 bg-black overflow-hidden rounded"
+      className="cursor-pointer card relative 
+                 w-full max-w-[90%] h-[280px] 
+                 sm:w-[300px] sm:h-[400px] 
+                 border-4 border-amber-600 bg-black 
+                 overflow-hidden rounded mx-auto"
       onMouseOver={() => setShow(true)}
       onMouseOut={() => setShow(false)}
-      initial={{ opacity: 0, y: 50 }}   // 👈 start hidden
-      whileInView={{ opacity: 1, y: 0 }} // 👈 animate when in view
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ scale: 1.05 }} // 👈 subtle zoom on hover
     >
       {/* Background Image */}
       <motion.img
         loading="lazy"
-        src={service.image}
+        src={`${import.meta.env.BASE_URL}${service.image}`}
         alt={service.name}
         className="w-full h-full object-cover brightness-50"
-        whileHover={{ scale: 1.1 }} // 👈 image zooms in slightly on hover
+        whileHover={{ scale: 1.1 }} 
         transition={{ duration: 0.4 }}
       />
 

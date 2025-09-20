@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ServiceCard from "./ServiceCard"; // ✅ imported as component
+import { createPortal } from "react-dom";
 
 const Section = (props) => {
   const [activeFeature, setActiveFeature] = useState(null);
@@ -11,7 +12,7 @@ const Section = (props) => {
       id={props.id}
       className="text-blue-950 lg:mx-30 my-10 pb-10 text-center space-y-5"
     >
-      <h3 style={{ fontFamily: "Golco" }} className="text-1">
+      <h3 className="text-2xl font-oswald font-bold">
         {props.title}
       </h3>
       <h1 className="tagline" style={{ fontFamily: "Golco" }}>
@@ -40,7 +41,8 @@ const Section = (props) => {
       )}
 
       {/* Popup Modal */}
-<AnimatePresence>
+      {
+        createPortal(<AnimatePresence>
   {activeFeature && (
     <motion.div
       className="fixed inset-0 flex items-center justify-center z-50"
@@ -67,7 +69,7 @@ const Section = (props) => {
       >
         {/* Project Image */}
         <img
-          src={activeFeature.image}
+          src={`${import.meta.env.BASE_URL}${activeFeature.image}`}
           alt={activeFeature.name}
           className="w-full h-64 object-cover rounded-lg"
         />
@@ -128,7 +130,8 @@ const Section = (props) => {
       </motion.div>
     </motion.div>
   )}
-</AnimatePresence>
+</AnimatePresence>,document.body)
+      }
 
     </section>
   );

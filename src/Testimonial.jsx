@@ -9,7 +9,7 @@ const Testimonial = () => {
       <motion.div
         key={index}
         className="bg-white text-blue-900 text-justify shadow-xl shadow-gray-300 
-        w-[300px] min-w-[300px] max-w-[300px] 
+        w-[300px] sm:w-[250px] xs:w-[200px] min-w-[200px] 
         border-amber-500 border-2 rounded flex flex-col space-y-5 mt-5 p-4 
         flex-shrink-0"
         initial={{ opacity: 0, y: 30 }}
@@ -18,19 +18,19 @@ const Testimonial = () => {
         viewport={{ once: true }}
       >
         <FormatQuoteIcon fontSize="large" className="text-amber-500 font-bold" />
-        <p className="break-words">{testimonial.comment}</p>
-        <div className="credits flex gap-5">
+        <p className="break-words text-sm sm:text-base">{testimonial.comment}</p>
+        <div className="credits flex gap-3 sm:gap-5 items-center">
           <img
             src={testimonial.pic}
-            className="w-[50px] h-[50px] rounded-full"
+            className="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px] rounded-full"
             alt="profile"
             loading="lazy"
           />
           <div className="flex flex-col text-left">
-            <span className="text-amber-500 text-xl font-bold">
+            <span className="text-amber-500 text-sm sm:text-xl font-bold">
               {testimonial.name}
             </span>
-            <span className="text-[12px]">{testimonial.location}</span>
+            <span className="text-[10px] sm:text-[12px]">{testimonial.location}</span>
           </div>
         </div>
       </motion.div>
@@ -38,10 +38,9 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="md:mx-30  text-center place-items-center space-y-5 mb-10">
+    <section id="testimonial" className="md:mx-30 text-center place-items-center space-y-5 mb-10 px-4 sm:px-6 lg:px-12">
       <motion.h3
-        style={{ fontFamily: "Golco" }}
-        className="text-blue-900 text-xl font-bold"
+        className="text-blue-900 text-xl sm:text-2xl font-oswald font-bold"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -51,7 +50,7 @@ const Testimonial = () => {
       </motion.h3>
 
       <motion.h1
-        className="tagline text-amber-500 text-lg"
+        className="tagline text-amber-500 text-base sm:text-lg md:text-xl"
         style={{ fontFamily: "Golco" }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +64,7 @@ const Testimonial = () => {
       <div className="overflow-hidden relative w-full h-full" id="test-carousel">
         {/* Right scroll */}
         <motion.div
-          className="flex gap-6 flex-nowrap"
+          className="flex gap-4 sm:gap-6 flex-nowrap"
           id="left"
           animate={{ x: ["0%", "-100%"] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -75,7 +74,7 @@ const Testimonial = () => {
 
         {/* Left scroll */}
         <motion.div
-          className="flex gap-6 flex-nowrap mt-6"
+          className="flex gap-4 sm:gap-6 flex-nowrap mt-6"
           id="right"
           animate={{ x: ["-100%", "0%"] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

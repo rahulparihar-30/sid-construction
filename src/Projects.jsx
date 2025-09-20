@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { projects } from "./data";
 import Navbar from "./Navbar";
 import ServiceCard from "./ServiceCard"; // ✅ use ServiceCard component
@@ -11,13 +11,17 @@ const Projects = () => {
 
   // Get unique categories from projects
   const categories = ["All", ...new Set(projects.map((p) => p.category))];
-
+   useEffect(() => {
+    const section = document.getElementById("projects");
+    if (section) {
+      section.scrollIntoView({ behavior: "instant", block: "start" });
+    }
+  }, []);
   // Apply filter
   const filteredProjects =
     filter === "All"
       ? projects
       : projects.filter((project) => project.category === filter);
-
   return (
     <>
       <Navbar />
@@ -25,7 +29,7 @@ const Projects = () => {
         {/* Hero Image + Tagline */}
         <div className="w-full h-60 md:h-70 relative bg-black">
           <img
-            src="/skyscrapers.jpg"
+            src={`${import.meta.env.BASE_URL}skyscrapers.jpg`}
             className="w-full h-full object-cover opacity-50"
             alt="Projects banner"
             loading="eager"

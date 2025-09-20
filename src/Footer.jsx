@@ -6,95 +6,116 @@ import {
   FaYoutube,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-amber-500 text-white pt-10 pb-3 ">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:text-center">
+    <footer
+      id="contact"
+      className="bg-amber-800/95 backdrop-blur-md shadow-md text-amber-100 pt-12 pb-6"
+    >
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Company Info */}
         <div>
-          <img
-            src="/logo.png"
-            alt="Siddharth Group Logo"
-            className="h-10 mb-4"
-          />
-          <p className="text-sm md:text-left">
+          <a to="/" className="w-10 h-10 cursor-pointer">
+            <img
+              src={`${import.meta.env.BASE_URL}logo.png`}
+              className="w-15 h-15 rounded mb-3"
+              alt="Agritech Solutions"
+            />
+          </a>
+          <p className="text-sm leading-relaxed">
             S. No, AP81, 83, N Main Rd, near Hard Rock Cafe, Koregaon Park
             Annexe, Mundhwa, Pune, Maharashtra 411036
           </p>
 
           <div className="mt-4 space-y-2 text-sm">
-            <p className="flex justify-center sm:justify-start items-center gap-2">
-              <Mail size={16} /> sidharthgroups@gmail.com
+            <p className="flex items-center gap-2">
+              <Mail size={16} className="text-amber-300" />
+              sidharthgroups@gmail.com
             </p>
-            <p className="flex  sm:justify-start items-center gap-2">
-              <Phone size={16} /> +91-88053608977
+            <p className="flex items-center gap-2">
+              <Phone size={16} className="text-amber-300" />
+              +91-88053608977
             </p>
           </div>
         </div>
 
-        {/* Services */}
+        {/* Quick Links */}
         <div>
-          <h3 className="font-semibold mb-3">Services</h3>
+          <h3 className="font-bold text-amber-300 mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li>Construction</li>
-            <li>Agriculture</li>
-            <li>Finance</li>
-            <li>Franchise</li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                Contact
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* About */}
+        {/* Policies */}
         <div>
-          <h3 className="font-semibold mb-3">About Us</h3>
+          <h3 className="font-bold text-amber-300 mb-3">Policies</h3>
           <ul className="space-y-2 text-sm">
-            <li>Overview</li>
-            <li>Team</li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                Terms & Conditions
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-amber-400">
+                Disclaimer
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* Projects */}
+        {/* Socials */}
         <div>
-          <h3 className="font-semibold mb-3">Projects</h3>
-          <ul className="space-y-2 text-sm">
-            <li>Construction</li>
-            <li>Agriculture</li>
-            <li>Finance</li>
-            <li>Franchise</li>
-          </ul>
-        </div>
-
-        {/* Policies & Socials */}
-        <div>
-          <h3 className="font-semibold mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#">Terms & Conditions</a>
-            </li>
-            <li>
-              <a href="#">Disclaimer</a>
-            </li>
-          </ul>
-
-          <div className="flex justify-center sm:justify-start gap-4 mt-6">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaYoutube /></a>
-            <a href="#"><FaLinkedinIn /></a>
+          <h3 className="font-bold text-amber-300 mb-3">Follow Us</h3>
+          <div className="flex gap-4 mt-4 text-lg">
+            <a href="#" className="hover:text-amber-400">
+              <FaFacebookF />
+            </a>
+            <a href="#" className="hover:text-amber-400">
+              <FaTwitter />
+            </a>
+            <a href="#" className="hover:text-amber-400">
+              <FaInstagram />
+            </a>
+            <a href="#" className="hover:text-amber-400">
+              <FaYoutube />
+            </a>
+            <a href="#" className="hover:text-amber-400">
+              <FaLinkedinIn />
+            </a>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white mt-6 pt-4 text-center text-xs sm:text-sm">
-        <p>
-          © 2025 Siddharth Group. All Rights Reserved. <br className="sm:hidden" />
-          Company Registration No.: SG/IND/2020/4582
-        </p>
+      <div className="border-t border-amber-700 mt-8 pt-4 text-center text-xs sm:text-sm text-amber-200">
+        <p>© 2025 Siddharth Group. All Rights Reserved.</p>
       </div>
     </footer>
   );

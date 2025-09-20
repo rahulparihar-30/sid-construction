@@ -7,19 +7,19 @@ export const services = [
     name: "Civil & Structured Work",
     description:
       "We provide complete architectural and interior design solutions tailored to your needs. From creating detailed layouts and 3D visualizations to obtaining necessary permits, our team ensures your home’s design is both functional and aesthetically pleasing while meeting all legal requirements.",
-    image: "/architecture-5585737_1280.jpg",
+    image: "architecture-5585737_1280.jpg",
   },
   {
     name: "Renovation & Remodeling",
     description:
       "We provide complete architectural and interior design solutions tailored to your needs. From creating detailed layouts and 3D visualizations to obtaining necessary permits, our team ensures your home’s design is both functional and aesthetically pleasing while meeting all legal requirements.",
-    image: "/city-5974876_1280.jpg",
+    image: "city-5974876_1280.jpg",
   },
   {
     name: "Design & Planning",
     description:
       "We provide complete architectural and interior design solutions tailored to your needs. From creating detailed layouts and 3D visualizations to obtaining necessary permits, our team ensures your home’s design is both functional and aesthetically pleasing while meeting all legal requirements.",
-    image: "/istockphoto-1035152900-1024x1024.jpg",
+    image: "istockphoto-1035152900-1024x1024.jpg",
   },
 ];
 
@@ -28,21 +28,21 @@ export const projects = [
     id: 1,
     name: "Skyline Heights",
     location: "Pune, Maharashtra",
-    image: "/villa-borghese-537944_1280.jpg", // ✅ your local image
+    image: "villa-borghese-537944_1280.jpg", // ✅ your local image
     category: "Residential",
   },
   {
     id: 2,
     name: "Ferns",
     location: "Bengaluru, Karnataka",
-    image: "/villa-3454616_1280.jpg", // ✅ your local image
+    image: "villa-3454616_1280.jpg", // ✅ your local image
     category: "Commercial",
   },
   {
     id: 3,
     name: "Green Meadows",
     location: "Mumbai, Maharashtra",
-    image: "/villa-7303286_1280.jpg", // ✅ your local image
+    image: "villa-7303286_1280.jpg", // ✅ your local image
     category: "Residential",
   },
   {
@@ -56,7 +56,7 @@ export const projects = [
     id: 5,
     name: "Sunrise Villas",
     location: "Chennai, Tamil Nadu",
-    image: "/construction/villa-2342131_1280.jpg", // ✅ if you have it, else fallback below
+    image: "/villa-2342131_1280.jpg", // ✅ if you have it, else fallback below
     // image: "https://picsum.photos/600/400?random=5", // fallback placeholder
     category: "Residential",
   },

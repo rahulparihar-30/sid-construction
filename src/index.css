@@ -1,16 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Oswald:wght@200..700&display=swap');
 @import "tailwindcss";
 
-body {
-  background-image: url('public/pattern.svg');
+/* Theme (Tailwind v4 syntax) */
+@theme {
+  --font-oswald: 'Oswald', sans-serif;
+  --font-amarante: 'Amarante', cursive;
 }
 
+/* Background */
+body {
+  /* background-image: url('/pattern.svg'); ✅ keep assets clean */
+}
+
+/* Base Layer */
 @layer base {
+  body {
+    @apply bg-stone-50;
+  }
+
   .tagline {
     @apply md:text-4xl text-xl text-center text-amber-500;
+    font-family: var(--font-oswald);
   }
+
   .section-headings {
     @apply flex-col text-center;
   }
+
   #test-carousel {
     width: 100%;
     mask-image: linear-gradient(
@@ -23,40 +39,30 @@ body {
   }
 }
 
+/* Animations */
 @keyframes move-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 @keyframes move-left {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
 }
 
-#right{
-    animation: move-right 15s linear infinite ;
+#right {
+  animation: move-right 15s linear infinite;
 }
 
-#left{
-    animation: move-left 15s linear infinite ;
+#left {
+  animation: move-left 15s linear infinite;
 }
 
-.tagline{
-  font-family: "Oswald", "sans-serif";
-}
-
+/* Fade-in */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px); /* optional: adds a slight slide effect */
+    transform: translateY(20px); /* slight slide */
   }
   to {
     opacity: 1;
@@ -65,11 +71,6 @@ body {
 }
 
 .fade-in {
-  opacity: 0; /* start hidden */
-  animation: fadeIn 0.8s ease-out forwards; 
-}
-
-
-@theme{
-  --font-oswald: 'Oswald', sans-serif;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
 }

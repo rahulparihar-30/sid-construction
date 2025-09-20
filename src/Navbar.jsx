@@ -1,71 +1,103 @@
 import React, { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react"; // hamburger & close icons
+import { Menu, X } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { NavLink } from "react-router-dom";
 
+gsap.registerPlugin(ScrollToPlugin);
+
 const Navbar = () => {
-  const navigations = ["Home", "Projects", "About", "Contact"];
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleScrollTo = (e, target) => {
+    e.preventDefault();
+
+    const section = document.querySelector(target);
+    if (section) {
+      const y = section.getBoundingClientRect().top + window.scrollY;
+      const offset = (window.innerHeight - section.offsetHeight) / 2; // center align
+
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: y - offset, // 👈 perfect center
+        ease: "power2.inOut",
+      });
+    }
+  };
+
+  const handleMobileLinkClick = (e, target) => {
+    handleScrollTo(e, target);
+    setMenuOpen(false);
+  };
+
   return (
     <nav
-      className={`fixed w-full top-0 left-0 p-2 z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-amber-500 text-white" : "bg-transparent text-white"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        menuOpen
+          ? "bg-amber-700/95 backdrop-blur-md shadow-md"
+          : scrolled
+          ? "bg-amber-700/90 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between max-w-7xl mx-auto px-4">
-        {/* Brand logo */}
-        <NavLink to="/" className="flex items-center">
+      {/* 👇 THIS IS THE CORRECTED LINE 👇 */}
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <a to="/" className="w-11 h-11 cursor-pointer">
           <img
-            className="brand-icon rounded-sm w-12 h-12"
-            src="/logo.png"
-            alt="Logo"
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            className="w-full h-full rounded"
+            alt="Agritech Solutions"
           />
-        </NavLink>
+        </a>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex gap-8 font-medium lg:font-bold">
-          {navigations.map((navigation) => (
-            <li
-              key={navigation}
-              className="hover:text-amber-600 transition-colors"
+        {/* Desktop Nav */}
+        <div className="hidden md:flex space-x-8 text-white font-medium">
+          {["home", "projects", "about", "contact"].map((item, i) => (
+            <a
+              key={i}
+              href={`#${item}`}
+              onClick={(e) => handleScrollTo(e, `#${item}`)}
+              className="relative inline-block transition-colors hover:text-amber-300
+                        after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+                        after:bg-amber-300 after:transition-all after:duration-300 hover:after:w-full"
             >
-              <a href={`#${navigation}`}>{navigation}</a>
-            </li>
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
           ))}
-        </ul>
+        </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 focus:outline-none"
+          className="md:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="md:hidden mt-2 bg-amber-500 text-white rounded-lg shadow-lg">
-          <ul className="flex flex-col items-center gap-4 p-4">
-            {navigations.map((navigation) => (
-              <li
-                key={navigation}
-                className="hover:text-black transition-colors"
-                onClick={() => setMenuOpen(false)} // close menu on click
-              >
-                <a href={`#${navigation}`}>{navigation}</a>
-              </li>
-            ))}
-          </ul>
+        <div className="md:hidden bg-amber-50/95 backdrop-blur shadow-md px-6 py-4 space-y-4 text-amber-700 font-sans">
+          {["home", "projects", "about", "contact"].map((item, i) => (
+            <a
+              key={i}
+              href={`#${item}`}
+              onClick={(e) => handleMobileLinkClick(e, `#${item}`)}
+              className="block relative transition-colors hover:text-amber-700
+                        after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+                        after:bg-amber-700 after:transition-all after:duration-300 hover:after:w-full"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
         </div>
       )}
     </nav>
