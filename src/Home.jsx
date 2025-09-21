@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <div className="relative w-full h-screen" id="Home">
+    <div className="relative w-full h-screen" id="home">
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"

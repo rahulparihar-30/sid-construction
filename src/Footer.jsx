@@ -6,7 +6,7 @@ import {
   FaYoutube,
   FaLinkedinIn,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import {quickLinks} from "./data";
 
 export default function Footer() {
   return (
@@ -45,26 +45,15 @@ export default function Footer() {
         <div>
           <h3 className="font-bold text-amber-300 mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li>
-              <a href="#" className="hover:text-amber-400">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-amber-400">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-amber-400">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-amber-400">
-                Contact
-              </a>
-            </li>
+            {
+              quickLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="hover:text-amber-400">
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 

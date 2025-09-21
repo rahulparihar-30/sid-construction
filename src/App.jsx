@@ -15,6 +15,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
+import UnderConstruction from "./UnderConstruction";
 
 // Register plugins
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -43,7 +44,7 @@ const App = () => {
       {/* GSAP ScrollSmoother wrapper */}
       <div id="smooth-wrapper" ref={wrapperRef}>
       <Navbar />
-
+      <UnderConstruction/>
         <div id="smooth-content" ref={contentRef}>
           <Home id="Home" />
 

@@ -153,3 +153,32 @@ export const comments=[
     "pic": "https://randomuser.me/api/portraits/men/74.jpg"
   }
 ]
+
+export const quickLinks = [
+   {
+      name: "Siddharth Groups",
+      href: "https://sidharthgroup.in",
+    },
+    {
+      name: "Agritech",
+      href: "https://agritech.sidharthgroup.in",
+    },
+    {
+      name: "Finbridge",
+      href: "https://finbridgeadvisor.com",
+      external: true,
+    },
+    {
+      name: "Mehtagroup",
+      href: "https://mehtagroup.in",
+      external: true,
+    },
+    {
+      name: "Lalit Films",
+      href: "https://latlitfilms.sidharthgroup.in",
+    },
+    {
+      name: "Pharmaceutical",
+      href: "sidharthgroup.in/pharmacy",
+    },
+  ];
